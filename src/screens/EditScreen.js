@@ -1,5 +1,6 @@
-import React, { useContext, useState } from 'react'
-import { StyleSheet, Text, TextInput, View } from 'react-native'
+import React, { useContext } from 'react'
+import { StyleSheet } from 'react-native'
+import BlogPostForm from '../components/BlogPostForm'
 import { Context } from '../context/BlogContext'
 
 const EditScreen = ({ navigation }) => {
@@ -9,18 +10,7 @@ const EditScreen = ({ navigation }) => {
     (blogPost) => blogPost.id === navigation.getParam('id'),
   )
 
-  const [title, setTitle] = useState(blogPost.title)
-  const [content, setContent] = useState(blogPost.content)
-
-  return (
-    <View>
-      <Text>Edit title:</Text>
-      <TextInput
-        value={title}
-        onChangeText={(newTitle) => setTitle(newTitle)}
-      />
-    </View>
-  )
+  return <BlogPostForm />
 }
 
 export default EditScreen
